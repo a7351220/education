@@ -77,3 +77,15 @@ cd education && go mod tidy
 ./clean_docker.sh
 ```
 在`127.0.0.1:9000`进行访问
+
+例如，运行以下命令以启动 VS Code 以超级用户身份：
+
+bash
+```
+code --no-sandbox --user-data-dir=/path/to/alternate/directory
+```
+家目录下的一个子目录： 您可以在您的家目录下创建一个新的子目录，例如 ~/.vscode_user_data，然后将其用作参数：
+
+```
+code --no-sandbox --user-data-dir=~/.vscode_user_data
+```
