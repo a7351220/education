@@ -1,4 +1,40 @@
 # education
+
+
+```markdown
+1. 下载并解压 Go 1.15.2：
+
+   ```bash
+   $ wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+   $ sudo tar -xvf go1.15.2.linux-amd64.tar.gz
+   ```
+
+2. 将 `go` 目录的所有文件的所有权更改为 `root` 用户和组：
+
+   ```bash
+   $ sudo chown -R root:root ./go
+   ```
+
+3. 将 `go` 目录移动到 `/usr/local`：
+
+   ```bash
+   $ sudo mv go /usr/local
+   ```
+
+4. 创建一个符号链接，以便您可以在任何地方使用 `go` 命令：
+
+   ```bash
+   $ sudo ln -s /usr/local/go/bin/go /usr/bin/go
+   ```
+
+5. 验证安装，检查 Go 版本：
+
+   ```bash
+   $ go version
+   ```
+```
+
+您可以将上述内容复制并粘贴到 GitHub README 文件中，以便其他人可以轻松按照这些步骤来安装 Go 1.15.2。
 将`GOPATH`设置为`/root/go`,拉取项目：
 ```
 cd $GOPATH/src && git clone https://github.com/sxguan/education.git
