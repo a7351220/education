@@ -1,7 +1,6 @@
 # education
 
 
-```markdown
 1. 下载并解压 Go 1.15.2：
 
    ```bash
@@ -32,9 +31,7 @@
    ```bash
    $ go version
    ```
-```
 
-您可以将上述内容复制并粘贴到 GitHub README 文件中，以便其他人可以轻松按照这些步骤来安装 Go 1.15.2。
 将`GOPATH`设置为`/root/go`,拉取项目：
 ```
 cd $GOPATH/src && git clone https://github.com/sxguan/education.git
