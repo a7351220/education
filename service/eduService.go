@@ -12,10 +12,10 @@ func (t *ServiceSetup) SaveEdu(edu Education) (string, error) {
 	reg, notifier := regitserEvent(t.Client, t.ChaincodeID, eventID)
 	defer t.Client.UnregisterChaincodeEvent(reg)
 
-	// 将edu对象序列化成为字节数组
+	// 將edu對象序列化成為字節數組
 	b, err := json.Marshal(edu)
 	if err != nil {
-		return "", fmt.Errorf("指定的edu对象序列化时发生错误")
+		return "", fmt.Errorf("指定的edu對象序列化時發生錯誤")
 	}
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "addEdu", Args: [][]byte{b, []byte(eventID)}}
@@ -61,10 +61,10 @@ func (t *ServiceSetup) ModifyEdu(edu Education) (string, error) {
 	reg, notifier := regitserEvent(t.Client, t.ChaincodeID, eventID)
 	defer t.Client.UnregisterChaincodeEvent(reg)
 
-	// 将edu对象序列化成为字节数组
+	// 將edu對象序列化成為字節數組
 	b, err := json.Marshal(edu)
 	if err != nil {
-		return "", fmt.Errorf("指定的edu对象序列化时发生错误")
+		return "", fmt.Errorf("指定的edu對象序列化時發生錯誤")
 	}
 
 	req := channel.Request{ChaincodeID: t.ChaincodeID, Fcn: "updateEdu", Args: [][]byte{b, []byte(eventID)}}
