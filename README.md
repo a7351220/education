@@ -17,12 +17,14 @@
 3. 将 `go` 目录移动到 `/usr/local`：
 
    ```bash
+   rm -rf /usr/local/go
     sudo mv go /usr/local
    ```
 
 4. 创建一个符号链接，以便您可以在任何地方使用 `go` 命令：
 
    ```bash
+    rm -rf /usr/bin/go
     sudo ln -s /usr/local/go/bin/go /usr/bin/go
    ```
 
