@@ -62,25 +62,25 @@ func main() {
 	}
 
 	// invoke chaincode set status
-	fmt.Println(">> 通过链码外部服务设置链码状态......")
+	fmt.Println(">> 通過鏈碼外部服務設置鏈碼狀態......")
 
 	edu := service.Education{
-		Name: "张三",
+		Name: "明華",
 		Gender: "男",
-		Nation: "汉",
+		Nation: "半獸人",
 		EntityID: "101",
-		Place: "北京",
-		BirthDay: "1991年01月01日",
-		EnrollDate: "2009年9月",
-		GraduationDate: "2013年7月",
-		SchoolName: "中国政法大学",
-		Major: "社会学",
-		QuaType: "普通",
-		Length: "四年",
-		Mode: "普通全日制",
-		Level: "本科",
-		Graduation: "毕业",
-		CertNo: "111",
+		Place: "彰化",
+		BirthDay: "2000年01月03日",
+		EnrollDate: "2023年11月4日",
+		GraduationDate: "2022年7月",
+		SchoolName: "中正大學",
+		Major: "加密貨幣",
+		QuaType: "金融科技",
+		Length: "碩二",
+		Mode: "戰鬥模式",
+		Level: "高級會員",
+		Graduation: "在學",
+		CertNo: "000",
 		Photo: "/static/photo/11.png",
 	}
 
@@ -93,7 +93,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}else {
-		fmt.Println("信息发布成功, 交易编号为: " + msg)
+		fmt.Println("信息發布成功, 交易編號: " + msg)
 	}
 
 	result, err := serviceSetup.FindEduInfoByEntityID("101")
@@ -102,7 +102,7 @@ func main() {
 	} else {
 		var edu service.Education
 		json.Unmarshal(result, &edu)
-		fmt.Println("根据身份证号码查询信息成功：")
+		fmt.Println("根據學號查詢信息成功：")
 		fmt.Println(edu)
 	}
 
