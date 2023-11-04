@@ -60,7 +60,7 @@
 现在，您的`GOPATH` 已经设置为 `/root/go`。您可以通过运行 `echo $GOPATH` 来验证它是否已正确设置。记住，任何时候修改环境变量后，需要在新终端窗口或会话中才能生效。
 将`GOPATH`设置为`/root/go`,拉取项目：
 ```
-cd $GOPATH/src && git clone [https://github.com/sxguan/education.git](https://github.com/a7351220/education.git)
+cd $GOPATH/src && git clone https://github.com/a7351220/education.git
 ```
 在`/etc/hosts`中添加：
 ```
