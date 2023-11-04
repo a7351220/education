@@ -29,7 +29,7 @@ func (app *Application) Help(w http.ResponseWriter, r *http.Request)  {
 	ShowView(w, r, "help.html", data)
 }
 
-// 用户登录
+// 用户登入
 func (app *Application) Login(w http.ResponseWriter, r *http.Request) {
 	loginName := r.FormValue("loginName")
 	password := r.FormValue("password")
@@ -52,10 +52,10 @@ func (app *Application) Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if flag {
-		// 登录成功
+		// 登錄成功
 		ShowView(w, r, "index.html", data)
 	}else{
-		// 登录失败
+		// 登錄失敗
 		data.Flag = true
 		data.CurrentUser.LoginName = loginName
 		ShowView(w, r, "login.html", data)
@@ -68,7 +68,7 @@ func (app *Application) LoginOut(w http.ResponseWriter, r *http.Request)  {
 	ShowView(w, r, "login.html", nil)
 }
 
-// 显示添加信息页面
+// 顯示添加信息頁面
 func (app *Application) AddEduShow(w http.ResponseWriter, r *http.Request)  {
 	data := &struct {
 		CurrentUser User
@@ -143,7 +143,7 @@ func (app *Application) QueryPage(w http.ResponseWriter, r *http.Request)  {
 	ShowView(w, r, "query.html", data)
 }
 
-// 根据证书编号与姓名查询信息
+// 根據社員編號與姓名查詢信息
 func (app *Application) FindCertByNoAndName(w http.ResponseWriter, r *http.Request)  {
 	certNo := r.FormValue("certNo")
 	name := r.FormValue("name")
@@ -151,7 +151,7 @@ func (app *Application) FindCertByNoAndName(w http.ResponseWriter, r *http.Reque
 	var edu = service.Education{}
 	json.Unmarshal(result, &edu)
 
-	fmt.Println("根据证书编号与姓名查询信息成功：")
+	fmt.Println("根據社員編號與姓名查詢信息成功：")
 	fmt.Println(edu)
 
 	data := &struct {
@@ -189,7 +189,7 @@ func (app *Application) QueryPage2(w http.ResponseWriter, r *http.Request)  {
 	ShowView(w, r, "query2.html", data)
 }
 
-// 根据身份证号码查询信息
+// 根據學號查詢信息
 func (app *Application) FindByID(w http.ResponseWriter, r *http.Request)  {
 	entityID := r.FormValue("entityID")
 	result, err := app.Setup.FindEduInfoByEntityID(entityID)
@@ -220,7 +220,7 @@ func (app *Application) FindByID(w http.ResponseWriter, r *http.Request)  {
 
 // 修改/添加新信息
 func (app *Application) ModifyShow(w http.ResponseWriter, r *http.Request)  {
-	// 根据证书编号与姓名查询信息
+	// 根據社員編號與姓名查詢信息
 	certNo := r.FormValue("certNo")
 	name := r.FormValue("name")
 	result, err := app.Setup.FindEduByCertNoAndName(certNo, name)
