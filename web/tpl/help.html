@@ -12,37 +12,33 @@
   </head>
   <body>
     <div class="container">
-      <div class="m_yah"><a href="/index">首页</a> &gt; 帮助中心</div>
+      <div class="m_yah"><a href="/index">首頁</a> &gt; 社員中心</div>
       <div class="m_s_l" id="leftMenu">
 
-        <div class="m_s_l_menu">查询范围</div>
+        <div class="m_s_l_menu">社團守則</div>
         <ul class="m_s_l_ul">
           <li class="leftMenu0 index">
             <span class="icon_list">&nbsp;</span>
-            <a href="javascript:void(0);">学籍学历查询范围</a>
+            <a href="javascript:void(0);">社團守則</a>
           </li>
         </ul>
 
-        <div class="m_s_l_menu">学历查询</div>
+        <div class="m_s_l_menu">社員查询</div>
         <ul class="m_s_l_ul">
           <li class="leftMenu1">
             <span class="icon_list">&nbsp;</span>
-            <a href="/queryPage">根据证书编号查询</a>
+            <a href="/queryPage">根據社員編號查詢</a>
           </li>
           <li class="leftMenu2">
             <span class="icon_list">&nbsp;</span>
-            <a href="/queryPage2">根据身份证号查询</a>
+            <a href="/queryPage2">根據學號查詢</a>
           </li>
           {{if eq .CurrentUser.IsAdmin "T"}}
             <li class="leftMenu3">
               <span class="icon_list">&nbsp;</span>
-              <a href="/addEduInfo">添加学历信息</a>
+              <a href="/addEduInfo">添加社員信息</a>
             </li>
           {{end}}
-          <li class="leftMenu4">
-            <span class="icon_list">&nbsp;</span>
-            <a href="javascript:void(0);">企业用户查询</a>
-          </li>
           <li class="leftMenu5">
             <span class="icon_list">&nbsp;</span>
             <a href="/loginout">退出</a>
