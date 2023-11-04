@@ -14,25 +14,27 @@ type Education struct {
 	ObjectType	string	`json:"docType"`
 	Name	string	`json:"Name"`		// 姓名
 	Gender	string	`json:"Gender"`		// 性别
-	Nation	string	`json:"Nation"`		// 民族
-	EntityID	string	`json:"EntityID"`		// 身份证号
-	Place	string	`json:"Place"`		// 籍贯
+	Nation	string	`json:"Nation"`		// 種族
+	EntityID	string	`json:"EntityID"`		// 學號
+	Place	string	`json:"Place"`		// 地區
 	BirthDay	string	`json:"BirthDay"`		// 出生日期
-	EnrollDate	string	`json:"EnrollDate"`		// 入学日期
-	GraduationDate	string	`json:"GraduationDate"`	// 毕（结）业日期
-	SchoolName	string	`json:"SchoolName"`	// 学校名称
-	Major	string	`json:"Major"`	// 专业
-	QuaType	string	`json:"QuaType"`	// 学历类别
-	Length	string	`json:"Length"`	// 学制
-	Mode	string	`json:"Mode"`	// 学习形式
-	Level	string	`json:"Level"`	// 层次
-	Graduation	string	`json:"Graduation"`	// 毕（结）业
-	CertNo	string	`json:"CertNo"`	// 证书编号
+
+	EnrollDate	string	`json:"EnrollDate"`		// 註冊日期
+	GraduationDate	string	`json:"GraduationDate"`	// 入學日期
+	SchoolName	string	`json:"SchoolName"`	// 校名
+	Major	string	`json:"Major"`	// 專業
+	QuaType	string	`json:"QuaType"`	// 科系
+	Length	string	`json:"Length"`	// 年級
+	Mode	string	`json:"Mode"`	// 模式
+	Level	string	`json:"Level"`	// 社員等級
+	Graduation	string	`json:"Graduation"`	// 是否畢業
+	CertNo	string	`json:"CertNo"`	// 社員編號
 
 	Photo	string	`json:"Photo"`	// 照片
 
-	Historys	[]HistoryItem	// 当前edu的历史记录
+	Historys	[]HistoryItem	// 當前edu的歷史紀錄
 }
+
 
 type HistoryItem struct {
 	TxId	string
@@ -48,7 +50,7 @@ func regitserEvent(client *channel.Client, chaincodeID, eventID string) (fab.Reg
 
 	reg, notifier, err := client.RegisterChaincodeEvent(chaincodeID, eventID)
 	if err != nil {
-		fmt.Println("注册链码事件失败: %s", err)
+		fmt.Println("注冊鏈碼事件失敗: %s", err)
 	}
 	return reg, notifier
 }
@@ -56,9 +58,9 @@ func regitserEvent(client *channel.Client, chaincodeID, eventID string) (fab.Reg
 func eventResult(notifier <-chan *fab.CCEvent, eventID string) error {
 	select {
 	case ccEvent := <-notifier:
-		fmt.Printf("接收到链码事件: %v\n", ccEvent)
+		fmt.Printf("接收到鏈碼事件: %v\n", ccEvent)
 	case <-time.After(time.Second * 20):
-		return fmt.Errorf("不能根据指定的事件ID接收到相应的链码事件(%s)", eventID)
+		return fmt.Errorf("不能根據指定的事件ID接收到相應的鏈碼事件(%s)", eventID)
 	}
 	return nil
 }
