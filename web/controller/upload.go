@@ -21,7 +21,7 @@ func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request)  {
 
 	file, _, err := r.FormFile("file")
 	if err != nil {
-		content = "\"error\":1,\"result\":{\"msg\":\"指定了无效的文件\",\"path\":\"\"}"
+		content = "\"error\":1,\"result\":{\"msg\":\"指定了無效的文件\",\"path\":\"\"}"
 		w.Write([]byte(start + content + end))
 		return
 	}
@@ -29,7 +29,7 @@ func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request)  {
 
 	fileBytes, err := ioutil.ReadAll(file)
 	if err != nil {
-		content = "\"error\":1,\"result\":{\"msg\":\"无法读取文件内容\",\"path\":\"\"}"
+		content = "\"error\":1,\"result\":{\"msg\":\"無法讀取文件內容\",\"path\":\"\"}"
 		w.Write([]byte(start + content + end))
 		return
 	}
@@ -42,30 +42,30 @@ func (app *Application) UploadFile(w http.ResponseWriter, r *http.Request)  {
 	case "application/pdf":
 		break
 	default:
-		content = "\"error\":1,\"result\":{\"msg\":\"文件类型错误\",\"path\":\"\"}"
+		content = "\"error\":1,\"result\":{\"msg\":\"文件類型錯誤\",\"path\":\"\"}"
 		w.Write([]byte(start + content + end))
 		return
 	}
 
 	fileName := randToken(12)	// 指定文件名
-	fileEndings, err := mime.ExtensionsByType(filetype)	// 获取文件扩展名
+	fileEndings, err := mime.ExtensionsByType(filetype)	// 獲取文件擴展名
 	//log.Println("fileEndings = " + fileEndings[0])
-	// 指定文件存储路径
+	// 指定文件存儲路徑
 	newPath := filepath.Join("web", "static", "photo", fileName + fileEndings[0])
 	//fmt.Printf("FileType: %s, File: %s\n", filetype, newPath)
 
 	newFile, err := os.Create(newPath)
 	if err != nil {
-		log.Println("创建文件失败：" + err.Error())
-		content = "\"error\":1,\"result\":{\"msg\":\"创建文件失败\",\"path\":\"\"}"
+		log.Println("創建文件失敗：" + err.Error())
+		content = "\"error\":1,\"result\":{\"msg\":\"創建文件失敗\",\"path\":\"\"}"
 		w.Write([]byte(start + content + end))
 		return
 	}
 	defer newFile.Close()
 
 	if _, err := newFile.Write(fileBytes); err != nil || newFile.Close() != nil {
-		log.Println("写入文件失败：" + err.Error())
-		content = "\"error\":1,\"result\":{\"msg\":\"保存文件内容失败\",\"path\":\"\"}"
+		log.Println("寫入文件失敗：" + err.Error())
+		content = "\"error\":1,\"result\":{\"msg\":\"保存文件內容失敗\",\"path\":\"\"}"
 		w.Write([]byte(start + content + end))
 		return
 	}
