@@ -20,12 +20,12 @@
                     <tr>
                         <td>姓名</td>
                         <td>出生日期</td>
-                        <td>身份证号</td>
-                        <td>学校名称</td>
-                        <td>入学日期</td>
-                        <td>毕(结)业日期</td>
-                        <td>专业</td>
-                        <td>层次</td>
+                        <td>學號</td>
+                        <td>校名</td>
+                        <td>註冊日期</td>
+                        <td>入學日期</td>
+                        <td>專業</td>
+                        <td>社員等級</td>
                     </tr>
                     {{range .Edu.Historys}}
                         <tr>
@@ -49,31 +49,31 @@
                       <span>{{.Edu.Name}}</span>
                   </p>
                   <p>
-                      <span>籍贯：</span>
+                      <span>地區 ：</span>
                       <span>{{.Edu.Place}}</span>
                   </p>
                   <p>
-                      <span>民族：</span>
+                      <span>種族：</span>
                       <span>{{.Edu.Nation}}</span>
                   </p>
                   <p>
-                      <span>入学日期：</span>
+                      <span>註冊日期：</span>
                       <span>{{.Edu.EnrollDate}}</span>
                   </p>
                   <p>
-                      <span>学校名称：</span>
+                      <span>校名：</span>
                       <span>{{.Edu.SchoolName}}</span>
                   </p>
                   <p>
-                      <span>学历类别：</span>
+                      <span>科系：</span>
                       <span>{{.Edu.QuaType}}</span>
                   </p>
                   <p>
-                      <span>层次：</span>
+                      <span>社員等級：</span>
                       <span>{{.Edu.Level}}</span>
                   </p>
                   <p>
-                      <span>毕(结)业：</span>
+                      <span>是否畢業：</span>
                       <span>{{.Edu.Graduation}}</span>
                   </p>
               </div>
@@ -87,28 +87,28 @@
                       <span>{{.Edu.BirthDay}}</span>
                   </p>
                   <p>
-                      <span>身份证号：</span>
+                      <span>學號：</span>
                       <span>{{.Edu.EntityID}}</span>
                   </p>
                   <p>
-                      <span>毕(结)业日期：</span>
+                      <span>入學日期：</span>
                       <span>{{.Edu.GraduationDate}}</span>
                   </p>
                   <p>
-                      <span>专业：</span>
+                      <span>專業：</span>
                       <span>{{.Edu.Major}}</span>
                   </p>
 
                   <p>
-                      <span>学习形式：</span>
+                      <span>模式：</span>
                       <span>{{.Edu.Mode}}</span>
                   </p>
                   <p>
-                      <span>学制：</span>
+                      <span>年級：</span>
                       <span>{{.Edu.Length}}</span>
                   </p>
                   <p>
-                      <span>证书编号：</span>
+                      <span>社員編號：</span>
                       <span>{{.Edu.CertNo}}</span>
                   </p>
               </div>
@@ -120,16 +120,9 @@
               {{if eq .CurrentUser.IsAdmin "T"}}
                   <a href="/modifyPage?certNo={{.Edu.CertNo}}&name={{.Edu.Name}}">修改信息</a>
               {{end}}
-              <a href="/index">返回首页</a>
+              <a href="/index">返回首頁</a>
           </p>
-          <div class="bottom">
-              <p><b>声明</b></p>
-              <p>1、未经学历信息权属人同息,不得将本材科用于违背权属人意愿之用速,学历信息内容标注“*”号,表示该内容不详,学历信息如有修改,请以网站在线查询内容为准则。</p>
-              <p>
-                  2.学历证书查询结果仅供查询人使用,不具有再验证功能,如
-                  需向第三方提供学历信息,建议使用具有检证功能的学历证书电子注册备案表。
-              </p>
-          </div>
+
       </div>
   </div>
   </body>
